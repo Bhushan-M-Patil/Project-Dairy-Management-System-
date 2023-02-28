@@ -81,9 +81,10 @@ public class Employee {
 	@NotBlank
 	private String phoneNo;
 
-	public Employee(String email, @NotBlank(message = "Employee Name is required!!!!") String name, double salary,
-			String gender, Role employeeRole, @Future(message = "join  date must be in future") LocalDate joiningDate,
-			String phoneNo) {
+	public Employee(String email, @NotBlank(message = "Employee Name is required!!!!") String name,
+			@NotNull double salary, @NotBlank String gender, Role employeeRole,
+			@Future(message = "join  date must be in future") @NotNull LocalDate joiningDate,
+			@NotBlank String phoneNo) {
 		super();
 		this.email = email;
 		this.name = name;
@@ -93,5 +94,7 @@ public class Employee {
 		this.joiningDate = joiningDate;
 		this.phoneNo = phoneNo;
 	}
+
+	
 	
 }
