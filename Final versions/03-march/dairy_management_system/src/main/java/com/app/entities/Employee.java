@@ -24,6 +24,7 @@ import javax.validation.constraints.NotNull;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -35,6 +36,7 @@ import lombok.ToString;
 @Getter //all getters
 @Setter //all setters
 @ToString(exclude = "password")//toString excluding password
+@AllArgsConstructor
 //JPA annotations
 @Entity
 @Table(name="Employee")

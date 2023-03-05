@@ -5,6 +5,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,7 +32,7 @@ public class ProductController {
 		System.out.println("In ProductController ctor");
 	}
 
-	@GetMapping
+	@GetMapping("/get-products")
 	public List<Product> getAllProducts() {
 		return productService.getAllProducts();
 	}
@@ -47,16 +48,24 @@ public class ProductController {
 		return productService.deleteProduct(productId);
 	}
 
-	@GetMapping("{productId}")
+	@GetMapping("/{productId}")
 	public Product getProductById(@PathVariable Long productId) {
 		return productService.getProductById(productId);
 	}
 
-	@PutMapping
+	@PutMapping("/update-products")
 	public Product updateProduct(@RequestBody @Valid Product product) {
 		return productService.updateProduct(product);
 	}
 	
+	//-----------------------------------------------------------------------------------------
+	@PutMapping("/update-products/{id}/{newStock}")
+	public void updateProductWithId(@PathVariable Long id, @PathVariable   Integer newStock) {
+		System.out.println("asfd "+ id+" sdf "+ newStock); 
+		productService.updateStockWithId(id, newStock);
+	}
 	
+	
+	//-----------------------------------------------------------------------------------------
 
 }

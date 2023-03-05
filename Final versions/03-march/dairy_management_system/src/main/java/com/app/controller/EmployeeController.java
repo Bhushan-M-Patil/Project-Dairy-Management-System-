@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.app.dto.ApiResponse;
 import com.app.entities.Employee;
-import com.app.entities.Suppliers;
 import com.app.service.EmployeeService;
 
 import lombok.NoArgsConstructor;

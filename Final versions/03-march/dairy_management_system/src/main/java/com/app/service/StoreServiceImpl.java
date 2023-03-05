@@ -63,5 +63,10 @@ public class StoreServiceImpl implements StoreService {
 		//=> success
 		return mapper.map(store, Store.class);
 	}
+
+	@Override
+	public Store findByEmail(String email) {
+		return storeRepo.findByEmail(email);
+	}
 	
 }

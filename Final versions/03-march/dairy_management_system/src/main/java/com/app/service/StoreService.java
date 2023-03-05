@@ -18,4 +18,5 @@ public interface StoreService {
 	Store updateStore(Store persistentStore);
 	Store getStoreById(Long storeId);
 	Store authenticateStore(@Valid LoginRequestDto loginRequestDto);
+	Store findByEmail(String email);
 }

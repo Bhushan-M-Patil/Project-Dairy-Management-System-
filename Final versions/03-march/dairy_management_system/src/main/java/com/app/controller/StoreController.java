@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.app.dto.LoginRequestDto;
 import com.app.entities.Store;
 import com.app.service.StoreService;
 
@@ -59,5 +61,14 @@ public class StoreController {
 	public Store updateStore(@RequestBody Store persistentStore) {
 		return storeService.updateStore(persistentStore);
 	}
+	
+	//---------------------------------------------
+	@GetMapping("/get-id/{email}")
+	public Store findByEmail(@PathVariable String email) {
+		return storeService.findByEmail(email);
+	}
+	
+	//---------------------------------------------
+
 	
 }

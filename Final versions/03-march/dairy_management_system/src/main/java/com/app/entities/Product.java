@@ -20,6 +20,8 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -65,6 +67,7 @@ public class Product {
 		@ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
 		@JoinTable(name="Products_Orders",joinColumns = @JoinColumn(name = "product_id"),
 		inverseJoinColumns = @JoinColumn(name="order_id"))
+		@JsonIgnore
 		private List<Order> orderList;
 		
 		

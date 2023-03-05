@@ -2,6 +2,8 @@ package com.app.service;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -54,5 +56,12 @@ public class ProductServiceImpl implements ProductService {
 		}
 		throw new ResourceNotFoundException("Product Not present With id = " + product.getId());
 	}
+	
+	@Override
+	public void updateStockWithId( Long id, int newStock) {
+	    productRepo.findById(id).orElseThrow(() -> new ResourceNotFoundException("Invalid Product"));
+		productRepo.updateStockWithId(id, newStock);
+	}
+
 
 }

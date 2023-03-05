@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -95,7 +96,7 @@ public class Store {
 
 	// -------------------------------
 
-		@OneToMany(mappedBy = "store", cascade = CascadeType.ALL, orphanRemoval = true)
+		@OneToMany(mappedBy = "store",fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
 		@JsonIgnore
 		List<Order> orderList = new ArrayList<>();
 
@@ -108,7 +109,7 @@ public class Store {
 			orderList.remove(cancelledOrder);
 			cancelledOrder.setStore(null);
 		}
-
+		
 		/// -------------------------------
 }
 

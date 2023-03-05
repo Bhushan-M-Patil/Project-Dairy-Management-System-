@@ -9,5 +9,6 @@ import com.app.entities.Store;
 public interface StoreRepository extends JpaRepository<Store, Long> {
 
 	Optional<Store> findByEmailAndPassword(String email, String password);
+	Store findByEmail(String email);
 
 }
